@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stephano Kamiche | Portafolio de Ingeniería Mecatrónica & Robótica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111726;
+      --card-border: #1e293b;
+      --card-hover: #1e2842;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #00d2ff;
+      --primary-glow: rgba(0, 210, 255, 0.25);
+      --secondary: #3b82f6;
+      --accent: #10b981;
+      --code-font: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 45px 45px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glow-1 {
+      position: fixed;
+      top: 10%;
+      left: 15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .glow-2 {
+      position: fixed;
+      bottom: 15%;
+      right: 10%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Nav */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(9, 13, 22, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--card-border);
+      z-index: 100;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo span {
+      color: var(--primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #070b14;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 210, 255, 0.45);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(0, 210, 255, 0.05);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 85px 0 60px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(0, 210, 255, 0.08);
+      border: 1px solid rgba(0, 210, 255, 0.25);
+      border-radius: 20px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-family: var(--code-font);
+      margin-bottom: 20px;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.9rem;
+      line-height: 1.15;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, #ffffff 30%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Stat Cards & Profile */
+    .hero-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .profile-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      border-left: 3px solid var(--primary);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .profile-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 210, 255, 0.5);
+    }
+    .hero-avatar {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+      flex-shrink: 0;
+    }
+    .profile-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .profile-sub {
+      font-size: 0.86rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .profile-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: #34d399;
+      font-family: var(--code-font);
+      background: rgba(16, 185, 129, 0.1);
+      padding: 3px 9px;
+      border-radius: 12px;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .stats-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      position: relative;
+    }
+    .stat-item {
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .stat-label {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    /* Section Titles */
+    .section-title-wrap {
+      text-align: center;
+      margin: 80px 0 40px;
+    }
+    .section-tag {
+      font-family: var(--code-font);
+      font-size: 0.82rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Project Cards Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 210, 255, 0.45);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Project Image Container */
+    .project-img-wrap {
+      height: 230px;
+      position: relative;
+      overflow: hidden;
+      background: #080c14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+    .project-img-contain {
+      object-fit: contain;
+      background: #0d131f;
+      padding: 6px;
+    }
+    .project-card:hover .project-img {
+      transform: scale(1.04);
+    }
+    .project-badge-top {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(9, 13, 22, 0.88);
+      border: 1px solid rgba(0, 210, 255, 0.4);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.76rem;
+      font-family: var(--code-font);
+      color: var(--primary);
+      backdrop-filter: blur(8px);
+      z-index: 2;
+    }
+
+    .project-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .project-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+    .project-role-date {
+      font-size: 0.85rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .tag {
+      font-family: var(--code-font);
+      font-size: 0.74rem;
+      padding: 3px 9px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Experience Card (Kioscos IA) */
+    .experience-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      align-items: center;
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .experience-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    }
+    .exp-company {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .exp-role {
+      color: var(--primary);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .exp-date {
+      font-family: var(--code-font);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .exp-desc ul {
+      margin-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .timeline-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--primary);
+      border-radius: 12px;
+      padding: 22px 26px;
+      transition: border-color 0.2s;
+    }
+    .timeline-card:hover {
+      border-left-color: #3b82f6;
+    }
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .timeline-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-family: var(--code-font);
+    }
+    .timeline-role {
+      font-size: 0.92rem;
+      color: #93c5fd;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .skill-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 22px;
+    }
+    .skill-box h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-item-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    .skill-item-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-item-list li::before {
+      content: "▹";
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(4, 7, 13, 0.88);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 999;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: var(--card-bg);
+      border: 1px solid var(--primary);
+      box-shadow: 0 20px 60px rgba(0, 210, 255, 0.25);
+      border-radius: 16px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .modal-img-preview {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      max-height: 320px;
+      object-fit: contain;
+      background: #070a12;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 100px;
+      border-top: 1px solid var(--card-border);
+      padding: 50px 0 35px;
+      background: #060910;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 50px 0 30px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .experience-box {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
+  <!-- Header Nav -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <span>&lt;SK /&gt;</span> Stephano Kamiche Planas
+      </a>
+      <ul class="nav-links">
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#liderazgo">Ponencias & Liderazgo</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+      </ul>
+      <div style="display: flex; gap: 10px;">
+        <a href="Stephano_Kamiche_CV.pdf" target="_blank" class="btn btn-outline">Ver CV (PDF)</a>
+        <a href="mailto:skamichep@gmail.com" class="btn btn-primary">Contactar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="container hero">
+    <div>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Disponible para Prácticas de Ingeniería Mecatrónica
+      </div>
+      <h1>
+        Robótica, Control & <br>
+        <span class="gradient-text">Sistemas Embebidos</span>
+      </h1>
+      <p>
+        Estudiante de Ingeniería Mecatrónica en la UPC y <strong>Presidente del Grupo de Robótica UPC</strong>. Trayectoria demostrada en exposiciones científicas (<strong>CONIDA</strong> y <strong>Coneimera 2025</strong>) con robots SCARA (Edge AI con Raspberry Pi 4), control dinámico no lineal y prótesis biónicas de 23 DOF.
+      </p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">Ver Proyectos de Ingeniería 🦾</a>
+        <a href="Stephano_Kamiche_CV.pdf" download="Stephano_Kamiche_CV.pdf" class="btn btn-outline">Descargar CV (PDF) 📄</a>
+        <a href="https://www.linkedin.com/in/stephano-kamiche-697223310/" target="_blank" class="btn btn-outline">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- Right Column: Profile Card + Stats Card -->
+    <div class="hero-right-col">
+      <div class="profile-card">
+        <img src="images/profile.png" alt="Stephano Kamiche Planas" class="hero-avatar">
+        <div>
+          <div class="profile-name">Stephano Kamiche Planas</div>
+          <div class="profile-sub">Ingeniería Mecatrónica • UPC</div>
+          <div class="profile-status">
+            <span class="badge-dot" style="width: 7px; height: 7px;"></span>
+            #OpenToWork (Prácticas)
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-card">
+        <div class="stat-item">
+          <div class="stat-number">CONIDA</div>
+          <div class="stat-label">Exposición en la Agencia Espacial del Perú (SCARA)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Raspberry Pi 4</div>
+          <div class="stat-label">Edge AI & Visión Computacional para robótica</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">23 DOF CAD</div>
+          <div class="stat-label">Mano Biónica con servomotores micro integrados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">ESP32 & RTOS</div>
+          <div class="stat-label">Control en tiempo real y modelado Euler-Lagrange</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos de Ingeniería (Hardware, Robótica y CAD) -->
+  <section class="container" id="proyectos">
+    <div class="section-title-wrap">
+      <div class="section-tag">// PROYECTOS TÉCNICOS DESTACADOS</div>
+      <h2 class="section-title">Hardware, Robótica & Simulación</h2>
+    </div>
+
+    <div class="projects-grid">
+      <!-- 1. Brazo SCARA con Foto Real en CONIDA -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="images/conida_scara.jpg" alt="Brazo Robótico SCARA en ponencia CONIDA" class="project-img">
+          <span class="project-badge-top">Exposición CONIDA</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Brazo Robótico SCARA con Edge AI</h3>
+          <div class="project-role-date">Diseñador y Programador • Mar 2024 – Dic 2025</div>
+          <p class="project-desc">
+            Manipulador industrial con gripper adaptable. Arquitectura de control jerárquico: procesamiento de visión artificial e IA ejecutado en <strong>Raspberry Pi 4</strong> y control de cinemática inversa sobre microcontrolador <strong>PIC18F57Q43</strong>. Demostrado en vivo en <strong>CONIDA</strong> y <strong>Coneimera 2025</strong>.
+          </p>
+          <div class="tech-tags">
+            <span class="tag">Raspberry Pi 4</span>
+            <span class="tag">PIC18F57Q43</span>
+            <span class="tag">Python (IA)</span>
+            <span class="tag">C</span>
+            <span class="tag">Cinemática</span>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openModal('scara')">Ver Ficha Técnica & Foto 📷</button>
+        </div>
+      </div>
+
+      <!-- 2. Péndulo Doble con Render 3D CAD Real -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="images/pendulo_cad.png" alt="Render 3D CAD del Péndulo Doble sobre Carro" class="project-img">
+          <span class="project-badge-top">Diseño CAD 3D & Control</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Sistema de Control para Péndulo Doble en Carro</h3>
+          <div class="project-role-date">Modelado y Control Dinámico • Sep 2025 – Presente</div>
+          <p class="project-desc">
+            Diseño mecánico 3D completo en CAD y modelado matemático no lineal (Euler-Lagrange) de un péndulo doble invertido sobre riel lineal con carro móvil, estabilizado en tiempo real mediante un microcontrolador ESP32.
+          </p>
+          <div class="tech-tags">
+            <span class="tag">ESP32</span>
+            <span class="tag">Fusion 360 (CAD)</span>
+            <span class="tag">Euler-Lagrange</span>
+            <span class="tag">Control Dinámico</span>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openModal('pendulo')">Ver Ficha Técnica & Render 3D 📐</button>
+        </div>
+      </div>
+
+      <!-- 3. Mano Biónica Traductora con Render CAD Real -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="images/mano_cad.png" alt="Diseño CAD 3D de la Mano Biónica 23 DOF" class="project-img project-img-contain">
+          <span class="project-badge-top">Modelo CAD 23 DOF</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Mano Biónica Traductora de Señas</h3>
+          <div class="project-role-date">Desarrollador Principal • Ago 2025 – Dic 2025</div>
+          <p class="project-desc">
+            Prótesis mecatrónica de 23 grados de libertad (DOF) diseñada en CAD con servomotores micro integrados en cada falange y palma. Arquitectura de control híbrida con PIC18F57Q43 y Arduino mediante buses I2C y UART para traducir voz a señas.
+          </p>
+          <div class="tech-tags">
+            <span class="tag">CAD Mecánico</span>
+            <span class="tag">PIC18F57Q43</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">I2C / UART</span>
+            <span class="tag">23 DOF</span>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openModal('mano')">Ver Ficha Técnica & CAD 🦾</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiencia Profesional Separada (Kioscos IA) -->
+  <section class="container" id="experiencia">
+    <div class="section-title-wrap">
+      <div class="section-tag">// TRAYECTORIA LABORAL</div>
+      <h2 class="section-title">Experiencia en la Industria</h2>
+    </div>
+
+    <div class="experience-box">
+      <div>
+        <div class="exp-company">Kioscos IA</div>
+        <div class="exp-role">Practicante de Ingeniería Mecatrónica</div>
+        <div class="exp-date">Ago 2025 – Dic 2025 • Lima, Perú</div>
+        <div style="margin-top: 12px;">
+          <span class="tag" style="background: rgba(0, 210, 255, 0.1); color: var(--primary);">IoT Industrial</span>
+          <span class="tag" style="background: rgba(0, 210, 255, 0.1); color: var(--primary);">SONOFF</span>
+        </div>
+      </div>
+      <div class="exp-desc">
+        <ul>
+          <li><strong>Lockers Inteligentes:</strong> Diseñé y ejecuté la arquitectura electrónica y automatización integral de un sistema de casilleros inteligentes, implementando control para mecanismos de puertas levadizas y configuración de tótems interactivos para usuarios.</li>
+          <li><strong>Domótica Escalable:</strong> Desarrollé una solución domótica integral basada en el ecosistema <em>SONOFF</em>, gestionando protocolos de conectividad inalámbrica, lógica de control distribuido y seguridad automatizada de los dispositivos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Liderazgo, Ponencias & Actividades Académicas -->
+  <section class="container" id="liderazgo">
+    <div class="section-title-wrap">
+      <div class="section-tag">// PONENCIAS & LIDERAZGO</div>
+      <h2 class="section-title">Investigación y Divulgación</h2>
+    </div>
+
+    <div class="timeline">
+      <!-- CONIDA -->
+      <div class="timeline-card">
+        <div class="timeline-top">
+          <div class="timeline-title">CONIDA – Agencia Espacial del Perú</div>
+          <div class="timeline-date">2025</div>
+        </div>
+        <div class="timeline-role">Expositor y Demostrador de Robótica</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Ponencia técnica y demostración en vivo del funcionamiento del brazo robótico SCARA con IA y prototipo mecatrónico ante delegaciones estudiantiles y especialistas del sector aeroespacial.
+        </p>
+      </div>
+
+      <!-- Presidencia UPC -->
+      <div class="timeline-card">
+        <div class="timeline-top">
+          <div class="timeline-title">Grupo de Robótica UPC</div>
+          <div class="timeline-date">Sep 2025 – Presente</div>
+        </div>
+        <div class="timeline-role">Presidente</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Liderazgo de líneas de investigación en sistemas de control y embebidos. Gestión de abastecimiento e importación de componentes técnicos y coordinación de equipos multidisciplinarios para competencias de robótica.
+        </p>
+      </div>
+
+      <!-- Congreso Coneimera -->
+      <div class="timeline-card">
+        <div class="timeline-top">
+          <div class="timeline-title">Congreso Coneimera 2025</div>
+          <div class="timeline-date">Ago 2025 – Sep 2025</div>
+        </div>
+        <div class="timeline-role">Expositor de Póster de Investigación</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Presentación y defensa técnica de la investigación: <em>"Sistema automatizado de detección con brazo robótico tipo SCARA mediante inteligencia artificial y cinemática inversa"</em>.
+        </p>
+      </div>
+
+      <!-- Steel Royal -->
+      <div class="timeline-card">
+        <div class="timeline-top">
+          <div class="timeline-title">Steel Royal UPC</div>
+          <div class="timeline-date">Abr 2024 – Presente</div>
+        </div>
+        <div class="timeline-role">Coordinador de Proyectos aplicados a la Industria</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Supervisión técnica de proyectos de ingeniería orientados a solucionar problemáticas industriales reales en ferias tecnológicas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competencias Técnicas -->
+  <section class="container" id="habilidades" style="margin-top: 40px;">
+    <div class="section-title-wrap">
+      <div class="section-tag">// STACK TÉCNICO</div>
+      <h2 class="section-title">Habilidades de Ingeniería</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-box">
+        <h3>⚡ Hardware & Embebidos</h3>
+        <ul class="skill-item-list">
+          <li>Raspberry Pi 4 (Edge AI, Linux, GPIO)</li>
+          <li>ESP32 (Wi-Fi, Bluetooth, RTOS)</li>
+          <li>Microchip PIC (PIC18F57Q43)</li>
+          <li>Arduino & Microcontroladores AVR</li>
+          <li>Protocolos: I2C, UART, SPI</li>
+          <li>Diseño y Ruteo de PCBs</li>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+        <h3>💻 Lenguajes & Software</h3>
+        <ul class="skill-item-list">
+          <li>Python (NumPy, OpenCV, IA, GUIs)</li>
+          <li>C / C++ para Sistemas Embebidos</li>
+          <li>Assembler</li>
+          <li>JavaScript, HTML5 & CSS3</li>
+          <li>Git & GitHub</li>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+        <h3>📐 CAD & Simulación Mecánica</h3>
+        <ul class="skill-item-list">
+          <li>Autodesk Fusion 360 (Modelado 3D & Ensambles)</li>
+          <li>Proteus Design Suite</li>
+          <li>Impresión 3D & Prototipado Rápido</li>
+          <li>Modelado Matemático (Euler-Lagrange)</li>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+        <h3>🌐 Gestión, Idiomas & Logística</h3>
+        <ul class="skill-item-list">
+          <li>Importación de Productos & Suministros Técnicos</li>
+          <li>Negociación con Proveedores Internacionales</li>
+          <li>Inglés: Intermedio (B1/B2) | Portugués: Básico (A1/A2)</li>
+          <li>Python for Everybody (Univ. of Michigan)</li>
+          <li>Excel Advanced (Macquarie Univ.)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal con Imagen y Ficha Técnica -->
+  <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalForce()">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="logo">
+        <span>&lt;SK /&gt;</span> Stephano Kamiche Planas
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        Estudiante de Ingeniería Mecatrónica • Universidad Peruana de Ciencias Aplicadas (UPC)
+      </p>
+      <div class="footer-links">
+        <a href="mailto:skamichep@gmail.com">skamichep@gmail.com</a>
+        <span>•</span>
+        <a href="tel:+51934871312">(+51) 934 871 312</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/stephano-kamiche-697223310/" target="_blank">LinkedIn</a>
+        <span>•</span>
+        <a href="Stephano_Kamiche_CV.pdf" target="_blank">Descargar CV (PDF)</a>
+      </div>
+      <p style="color: #64748b; font-size: 0.8rem; margin-top: 15px;">
+        © 2026 Stephano Kamiche Planas. Portafolio de proyectos mecatrónicos.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const projectDetails = {
+      scara: {
+        title: "Brazo Robótico SCARA con Edge AI en Raspberry Pi 4",
+        category: "Robótica Industrial & Edge Computing",
+        badge: "Presentado en CONIDA & Coneimera 2025",
+        img: "images/conida_scara.jpg",
+        desc: "Manipulador industrial diseñado con arquitectura jerárquica de dos niveles: un procesador central Raspberry Pi 4 para procesamiento de imágenes por visión computacional y modelos de IA en Python, enlazado a un microcontrolador PIC18F57Q43 para el cálculo cinemático analítico y generación de pulsos PWM hacia los actuadores.",
+        specs: [
+          { label: "Edge Computing (IA):", val: "Raspberry Pi 4 (Python, OpenCV, inferencia de modelos)" },
+          { label: "Microcontrolador de Control:", val: "PIC18F57Q43 (Cinemática directa e inversa en C)" },
+          { label: "Ponencia & Demostración:", val: "CONIDA (Agencia Espacial del Perú)" },
+          { label: "Congreso Científico:", val: "Póster de investigación Coneimera 2025" },
+          { label: "Efector Final:", val: "Gripper adaptable fabricado para manipulación irregular" }
+        ],
+        impact: "Arquitectura escalable de visión computacional y control en tiempo real demostrada públicamente."
+      },
+      pendulo: {
+        title: "Sistema de Estabilización de Péndulo Doble en Carro",
+        category: "Control Dinámico & Modelado Físico",
+        badge: "Render 3D CAD & Control ESP32",
+        img: "images/pendulo_cad.png",
+        desc: "Desarrollo completo desde el modelado CAD 3D hasta la implementación del control en lazo cerrado para la estabilización de un péndulo doble invertido sobre riel lineal con carro móvil.",
+        specs: [
+          { label: "Modelado Físico:", val: "Deducción de ecuaciones no lineales por Euler-Lagrange" },
+          { label: "Diseño CAD:", val: "Modelado 3D de piezas, ensamble de riel, carro y poleas en Fusion 360" },
+          { label: "Controlador Embebido:", val: "ESP32 con control por interrupciones de tiempo real" },
+          { label: "Sensado & Actuación:", val: "Encoders ópticos para ángulos articulares y motor DC con PWM" }
+        ],
+        impact: "Demuestra dominio en diseño mecánico en CAD, simulación dinámica y algoritmos avanzados de control."
+      },
+      mano: {
+        title: "Mano Biónica Traductora de Lenguaje de Señas (23 DOF)",
+        category: "Prótesis Robótica & Sistemas Embebidos",
+        badge: "Modelo CAD & 23 Grados de Libertad",
+        img: "images/mano_cad.png",
+        desc: "Dispositivo mecatrónico de asistencia diseñado en CAD con 23 grados de libertad (DOF), distribuyendo micro-servomotores dentro de las falanges distales, proximales y el chasis de la palma para reproducir con alta fidelidad el abecedario dactilológico.",
+        specs: [
+          { label: "Diseño Mecánico (CAD):", val: "Modelado 3D biomecánico con cavidades para servomotores internos" },
+          { label: "Arquitectura Híbrida:", val: "PIC18F57Q43 (Control maestro) + Arduino (Subcontrol de actuadores)" },
+          { label: "Buses de Comunicación:", val: "I2C maestro-esclavo y UART para telemetría" },
+          { label: "Grados de Libertad:", val: "23 DOF independientes para articulaciones carpianas y falanges" },
+          { label: "Exhibición:", val: "Presentada en conjunto con el brazo SCARA en la exposición de CONIDA" }
+        ],
+        impact: "Prototipo funcional de inclusión social con empaquetamiento mecatrónico compacto."
+      }
+    };
+
+    function openModal(key) {
+      const data = projectDetails[key];
+      const content = `
+        <div style="font-family: var(--code-font); font-size: 0.8rem; color: var(--primary); margin-bottom: 4px;">// ${data.category}</div>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; color: #fff; margin-bottom: 8px;">${data.title}</h2>
+        <div style="display: inline-block; background: rgba(0, 210, 255, 0.15); border: 1px solid var(--primary); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; font-family: var(--code-font); margin-bottom: 16px;">${data.badge}</div>
+        
+        ${data.img ? `<img src="${data.img}" alt="${data.title}" class="modal-img-preview">` : ''}
+
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">${data.desc}</p>
+        
+        <h4 style="color: #fff; font-size: 0.98rem; margin-bottom: 10px;">Detalles Técnicos:</h4>
+        <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px; margin-bottom: 18px;">
+          ${data.specs.map(s => `
+            <div style="display: flex; gap: 8px; margin-bottom: 8px; font-size: 0.88rem;">
+              <strong style="color: #93c5fd; min-width: 180px;">${s.label}</strong>
+              <span style="color: #cbd5e1;">${s.val}</span>
+            </div>
+          `).join('')}
+        </div>
+        
+        <div style="background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 6px; font-size: 0.88rem; color: #a7f3d0;">
+          <strong>Logro Destacado:</strong> ${data.impact}
+        </div>
+      `;
+      document.getElementById('modalContent').innerHTML = content;
+      document.getElementById('projectModal').classList.add('active');
+    }
+
+    function closeModal(event) {
+      document.getElementById('projectModal').classList.remove('active');
+    }
+    function closeModalForce() {
+      document.getElementById('projectModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
